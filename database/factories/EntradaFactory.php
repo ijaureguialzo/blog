@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Entrada;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class EntradaFactory extends Factory
 {
@@ -22,7 +23,7 @@ class EntradaFactory extends Factory
     public function definition()
     {
         return [
-            'titulo' => $this->faker->sentence(3),
+            'titulo' => Str::ucfirst($this->faker->words(3, true)),
             'texto' => $this->faker->text(100),
             'fecha' => $this->faker->dateTime(),
             'visible' => $this->faker->boolean(),
