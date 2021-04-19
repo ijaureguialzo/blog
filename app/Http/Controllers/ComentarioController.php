@@ -74,4 +74,21 @@ class ComentarioController extends Controller
 
         return back();
     }
+
+    public function comentarEntrada(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required',
+        ]);
+
+        Comentario::create([
+            'email' => request('email'),
+            'texto' => request('texto'),
+            'fecha' => now(),
+            'visible' => true,
+            'entrada_id' => request('entrada_id')
+        ]);
+
+        return back();
+    }
 }

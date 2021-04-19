@@ -20,3 +20,5 @@ Route::get('/', [EntradaController::class, 'index']);
 Route::resource('entradas', EntradaController::class);
 Route::resource('comentarios', ComentarioController::class);
 
+Route::post('/comentarios/comentar', [ComentarioController::class, 'comentarEntrada'])
+    ->name("comentarios.comentar");
